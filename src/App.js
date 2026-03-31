@@ -44,8 +44,27 @@ function App() {
   const [filteredRobots, setFilteredRobots] = useState([]);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortOption, setSortOption] = useState('None');
 
   const categories = ['All', ...new Set(robotsData.map(r => r.category))];
+
+  const parsePayload = (payload) => {
+    if (typeof payload === 'number') return payload;
+    if (!payload) return 0;
+    // Handle strings like "6–10", "up to 3100", "7-12"
+    const match = payload.toString().match(/\d+/);
+    return match ? parseInt(match[0]) : 0;
+  };
+
+  const parseCost = (cost) => {
+    if (!cost) return 0;
+    const str = cost.toString().toLowerCase();
+    const match = str.match(/[\d.]+/);
+    if (!match) return 0;
+    let val = parseFloat(match[0]);
+    if (str.includes('cr')) val *= 100; // Convert Cr to Lakhs for comparison
+    return val;
+  };
 
   useEffect(() => {
     setRobots(robotsData);
@@ -53,12 +72,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    let result = robots;
+    let result = [...robots];
 
+    // Filter
     if (activeCategory !== 'All') {
       result = result.filter(r => r.category === activeCategory);
     }
 
+    // Search
     if (searchQuery) {
       result = result.filter(r => 
         r.model.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -67,8 +88,19 @@ function App() {
       );
     }
 
+    // Sort
+    if (sortOption === 'Price Low-High') {
+      result.sort((a, b) => parseCost(a.cost) - parseCost(b.cost));
+    } else if (sortOption === 'Price High-Low') {
+      result.sort((a, b) => parseCost(b.cost) - parseCost(a.cost));
+    } else if (sortOption === 'Payload Low-High') {
+      result.sort((a, b) => parsePayload(a.payload) - parsePayload(b.payload));
+    } else if (sortOption === 'Payload High-Low') {
+      result.sort((a, b) => parsePayload(b.payload) - parsePayload(a.payload));
+    }
+
     setFilteredRobots(result);
-  }, [activeCategory, searchQuery, robots]);
+  }, [activeCategory, searchQuery, sortOption, robots]);
 
   return (
     <div className="App">
@@ -88,15 +120,35 @@ function App() {
       </div>
 
       <div className="filters-container">
-        {categories.map(cat => (
-          <button 
-            key={cat}
-            className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
-            onClick={() => setActiveCategory(cat)}
+        <div className="sort-section">
+          <span className="section-label">Sort by:</span>
+          <select 
+            className="sort-select" 
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
           >
-            {cat}
-          </button>
-        ))}
+            <option value="None">Default</option>
+            <option value="Price Low-High">Price: Low to High</option>
+            <option value="Price High-Low">Price: High to Low</option>
+            <option value="Payload Low-High">Payload: Light to Heavy</option>
+            <option value="Payload High-Low">Payload: Heavy to Light</option>
+          </select>
+        </div>
+
+        <div className="category-section">
+          <span className="section-label">Filter by:</span>
+          <div className="category-chips">
+            {categories.map(cat => (
+              <button 
+                key={cat}
+                className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="robot-grid">

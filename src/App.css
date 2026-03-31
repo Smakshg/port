@@ -25,10 +25,60 @@
 /* Filters */
 .filters-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.sort-section, .category-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.category-chips {
+  display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 3rem;
   flex-wrap: wrap;
+}
+
+.sort-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  transition: var(--transition);
+  min-width: 240px;
+}
+
+.sort-select:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-card-hover);
+}
+
+.sort-select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(0, 242, 255, 0.1);
+}
+
+.sort-select option {
+  background: #1a1d23;
+  color: #fff;
 }
 
 .filter-btn {
