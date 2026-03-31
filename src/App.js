@@ -1,6 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import robotsData from './data/robots.json';
+
+const SortDropdown = ({ sortOption, setSortOption }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const options = [
+    { label: 'Default', value: 'None' },
+    { label: 'Price: Low to High', value: 'Price Low-High' },
+    { label: 'Price: High to Low', value: 'Price High-Low' },
+    { label: 'Payload: Light to Heavy', value: 'Payload Low-High' },
+    { label: 'Payload: Heavy to Light', value: 'Payload High-Low' }
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedLabel = options.find(opt => opt.value === sortOption)?.label || 'Sort By';
+
+  return (
+    <div className="custom-dropdown" ref={dropdownRef}>
+      <button 
+        className={`dropdown-trigger ${isOpen ? 'open' : ''}`} 
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span>{selectedLabel}</span>
+        <svg className="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      
+      {isOpen && (
+        <div className="dropdown-menu">
+          {options.map((opt) => (
+            <div 
+              key={opt.value} 
+              className={`dropdown-item ${sortOption === opt.value ? 'active' : ''}`}
+              onClick={() => {
+                setSortOption(opt.value);
+                setIsOpen(false);
+              }}
+            >
+              {opt.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const RobotCard = ({ robot }) => {
   return (
@@ -109,34 +165,24 @@ function App() {
         <p>Explore the ultimate collection of industrial robotic solutions.</p>
       </header>
 
-      <div className="search-container">
-        <input 
-          type="text" 
-          className="search-input" 
-          placeholder="Search models, use cases..." 
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+      <div className="search-sort-container">
+        <div className="search-box">
+          <input 
+            type="text" 
+            className="search-input" 
+            placeholder="Search models, use cases..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+        
+        <div className="sort-box">
+          <SortDropdown sortOption={sortOption} setSortOption={setSortOption} />
+        </div>
       </div>
 
       <div className="filters-container">
-        <div className="sort-section">
-          <span className="section-label">Sort by:</span>
-          <select 
-            className="sort-select" 
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-          >
-            <option value="None">Default</option>
-            <option value="Price Low-High">Price: Low to High</option>
-            <option value="Price High-Low">Price: High to Low</option>
-            <option value="Payload Low-High">Payload: Light to Heavy</option>
-            <option value="Payload High-Low">Payload: Heavy to Light</option>
-          </select>
-        </div>
-
         <div className="category-section">
-          <span className="section-label">Filter by:</span>
           <div className="category-chips">
             {categories.map(cat => (
               <button 
