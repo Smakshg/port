@@ -36,7 +36,6 @@ const SaaSSkeleton = ({ onBack }) => {
           }}>
             V2.0 Launch
           </span>
-<<<<<<< HEAD
           <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', fontWeight: 900, marginTop: '20px', lineHeight: 1.1 }}>
             Innovate at the <br/>
             <span style={{ color: '#8b5cf6' }}>Speed of Thought</span>
@@ -45,16 +44,6 @@ const SaaSSkeleton = ({ onBack }) => {
             The ultimate SaaS foundation for developers who want to scale their applications without the boilerplate.
           </p>
           <div style={{ marginTop: '40px', display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-=======
-          <h1 style={{ fontSize: '4.5rem', fontWeight: 900, marginTop: '20px' }}>
-            Innovate at the <br/>
-            <span style={{ color: '#8b5cf6' }}>Speed of Thought</span>
-          </h1>
-          <p style={{ maxWidth: '600px', margin: '20px auto', color: '#94a3b8', fontSize: '1.2rem' }}>
-            The ultimate SaaS foundation for developers who want to scale their applications without the boilerplate.
-          </p>
-          <div style={{ marginTop: '40px', display: 'flex', gap: '20px', justifyContent: 'center' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
             <button style={{ padding: '15px 30px', borderRadius: '10px', background: '#8b5cf6', color: '#fff', border: 'none', fontWeight: 700, cursor: 'pointer' }}>Get Started</button>
             <button style={{ padding: '15px 30px', borderRadius: '10px', background: 'transparent', color: '#fff', border: '1px solid #334155', fontWeight: 700, cursor: 'pointer' }}>Watch Demo</button>
           </div>
@@ -65,11 +54,7 @@ const SaaSSkeleton = ({ onBack }) => {
       <section style={{ padding: '80px 20%', textAlign: 'center' }}>
         <h2 style={{ fontSize: '2.5rem', marginBottom: '40px' }}>Simple, <span style={{ color: '#06b6d4' }}>Transparent</span> Pricing</h2>
         
-<<<<<<< HEAD
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '50px', flexWrap: 'wrap' }}>
-=======
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '50px' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           <span style={{ opacity: isYearly ? 0.5 : 1 }}>Monthly</span>
           <div 
             onClick={() => setIsYearly(!isYearly)}
@@ -82,20 +67,12 @@ const SaaSSkeleton = ({ onBack }) => {
           <span style={{ opacity: isYearly ? 1 : 0.5 }}>Yearly <span style={{ fontSize: '0.7rem', background: '#06b6d4', padding: '2px 8px', borderRadius: '10px' }}>20% OFF</span></span>
         </div>
 
-<<<<<<< HEAD
         <div style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap' }}>
-=======
-        <div style={{ display: 'flex', gap: '30px', justifyContent: 'center' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           {['Basic', 'Pro', 'Enterprise'].map((plan, idx) => (
             <motion.div 
               key={plan}
               whileHover={{ y: -10 }}
-<<<<<<< HEAD
               style={{ minWidth: '300px', flex: '1 1 300px', maxWidth: '400px', padding: '40px', background: '#0f172a', border: '1px solid #1e293b', borderRadius: '20px', textAlign: 'left' }}
-=======
-              style={{ flex: 1, padding: '40px', background: '#0f172a', border: '1px solid #1e293b', borderRadius: '20px', textAlign: 'left' }}
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
             >
               <h3 style={{ fontSize: '1.2rem', color: '#94a3b8' }}>{plan}</h3>
               <div style={{ margin: '20px 0', display: 'flex', alignItems: 'flex-end', gap: '5px' }}>

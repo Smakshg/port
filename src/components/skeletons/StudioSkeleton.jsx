@@ -19,15 +19,9 @@ const StudioSkeleton = ({ onBack }) => {
       </button>
 
       {/* Modern Minimal Header */}
-<<<<<<< HEAD
       <header style={{ padding: window.innerWidth < 768 ? '30px 5%' : '40px 10%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
         <div style={{ fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-1px' }}>CANVAS STUDIO</div>
         <div style={{ display: 'flex', gap: window.innerWidth < 768 ? '20px' : '40px', fontWeight: 600, fontSize: '0.8rem' }}>
-=======
-      <header style={{ padding: '40px 10%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-1px' }}>CANVAS STUDIO</div>
-        <div style={{ display: 'flex', gap: '40px', fontWeight: 600, fontSize: '0.9rem' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           <span>WORK</span>
           <span>SERVICES</span>
           <span>CONTACT</span>
@@ -35,39 +29,23 @@ const StudioSkeleton = ({ onBack }) => {
       </header>
 
       {/* Visual Hero */}
-<<<<<<< HEAD
       <main style={{ padding: window.innerWidth < 768 ? '100px 5% 50px' : '100px 10%' }}>
-=======
-      <main style={{ padding: '100px 10%' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
         <motion.div
            initial={{ opacity: 0, y: 40 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 1 }}
         >
-<<<<<<< HEAD
           <h1 style={{ fontSize: 'clamp(3rem, 15vw, 10vw)', lineHeight: 0.9, fontWeight: 900, marginBottom: '60px' }}>
-=======
-          <h1 style={{ fontSize: '10vw', lineHeight: 0.9, fontWeight: 900, marginBottom: '60px' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
             PURE <br/> CREATIVE
           </h1>
         </motion.div>
 
-<<<<<<< HEAD
         <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', gap: '40px' }}>
-=======
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '40px' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-<<<<<<< HEAD
             style={{ flex: 7 }}
-=======
-            style={{ gridColumn: 'span 7' }}
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           >
             <motion.div 
               whileHover="hover"
@@ -98,15 +76,9 @@ const StudioSkeleton = ({ onBack }) => {
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ delay: 0.8 }}
-<<<<<<< HEAD
              style={{ flex: 5, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: window.innerWidth < 768 ? '0' : '50px' }}
           >
             <h3 style={{ fontSize: '1.8rem', marginBottom: '30px' }}>Helping brands stand out in a digital noise.</h3>
-=======
-             style={{ gridColumn: 'span 5', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '50px' }}
-          >
-            <h3 style={{ fontSize: '2rem', marginBottom: '30px' }}>Helping brands stand out in a digital noise.</h3>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
             <p style={{ lineHeight: 1.8, opacity: 0.7 }}>
                 We believe in the power of simplicity. Every pixel should serve a purpose, every animation should tell a story. We don't just build websites; we craft digital experiences.
             </p>

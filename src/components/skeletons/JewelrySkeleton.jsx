@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGem, FaHeart, FaShoppingBag, FaArrowLeft, FaChevronRight, FaStar } from 'react-icons/fa';
+import { FaGem, FaHeart, FaShoppingBag, FaArrowLeft, FaStar } from 'react-icons/fa';
 
 const JewelrySkeleton = ({ onBack }) => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -52,41 +52,25 @@ const JewelrySkeleton = ({ onBack }) => {
           transition={{ duration: 2 }}
           style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1549439602-43ebca2327af?auto=format&fit=crop&q=80&w=2070)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.4 }}
         />
-<<<<<<< HEAD
         <div style={{ position: 'relative', textAlign: 'center', zIndex: 2, padding: '0 20px' }}>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             style={{ color: '#d4af37', letterSpacing: '10px', fontSize: '0.8rem', marginBottom: '20px' }}>ELEGANCE REDEFINED</motion.p>
-=======
-        <div style={{ position: 'relative', textAlign: 'center', zIndex: 2 }}>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{ color: '#d4af37', letterSpacing: '10px', fontSize: '0.9rem', marginBottom: '20px' }}>ELEGANCE REDEFINED</motion.p>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-<<<<<<< HEAD
             style={{ fontSize: 'clamp(2.5rem, 10vw, 5rem)', fontWeight: 200, letterSpacing: '-2px', marginBottom: '30px', lineHeight: 1.1 }}>Crafting Eternal <br/> Memories</motion.h1>
           <motion.button 
             whileHover={{ scale: 1.05, background: '#d4af37', color: '#000' }}
             style={{ border: '1px solid #d4af37', background: 'transparent', color: '#d4af37', padding: '15px 40px', fontSize: '0.7rem', letterSpacing: '3px', cursor: 'pointer', transition: 'all 0.3s' }}>
-=======
-            style={{ fontSize: '5rem', fontWeight: 200, letterSpacing: '-2px', marginBottom: '30px' }}>Crafting Eternal <br/> Memories</motion.h1>
-          <motion.button 
-            whileHover={{ scale: 1.05, background: '#d4af37', color: '#000' }}
-            style={{ border: '1px solid #d4af37', background: 'transparent', color: '#d4af37', padding: '15px 40px', fontSize: '0.8rem', letterSpacing: '3px', cursor: 'pointer', transition: 'all 0.3s' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
             EXPLORE COLLECTIONS
           </motion.button>
         </div>
       </section>
 
       {/* Collections */}
-<<<<<<< HEAD
       <section style={{ padding: '80px 5%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '60px', flexWrap: 'wrap', gap: '20px' }}>
           <div>
@@ -94,35 +78,18 @@ const JewelrySkeleton = ({ onBack }) => {
             <div style={{ width: '50px', height: '2px', background: '#d4af37' }}></div>
           </div>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-=======
-      <section style={{ padding: '100px 10%' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '60px' }}>
-          <div>
-            <h2 style={{ fontSize: '3rem', fontWeight: 300, marginBottom: '10px' }}>Boutique</h2>
-            <div style={{ width: '50px', height: '2px', background: '#d4af37' }}></div>
-          </div>
-          <div style={{ display: 'flex', gap: '30px' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
             {['All', 'Necklaces', 'Rings', 'Bracelets'].map(cat => (
               <span 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-<<<<<<< HEAD
                 style={{ cursor: 'pointer', fontSize: '0.8rem', letterSpacing: '1px', color: activeCategory === cat ? '#d4af37' : '#666', borderBottom: activeCategory === cat ? '1px solid #d4af37' : 'none', paddingBottom: '5px' }}>
-=======
-                style={{ cursor: 'pointer', fontSize: '0.9rem', color: activeCategory === cat ? '#d4af37' : '#666', borderBottom: activeCategory === cat ? '1px solid #d4af37' : 'none', paddingBottom: '5px' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
                 {cat}
               </span>
             ))}
           </div>
         </div>
 
-<<<<<<< HEAD
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '40px' }}>
-=======
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '30px' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           {collections.filter(c => activeCategory === 'All' || c.category === activeCategory).map(item => (
             <motion.div 
               key={item.id}
@@ -148,7 +115,6 @@ const JewelrySkeleton = ({ onBack }) => {
       </section>
 
       {/* Featured Piece */}
-<<<<<<< HEAD
       <section style={{ background: '#111', padding: '80px 5%', display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', gap: '60px', alignItems: 'center' }}>
         <div style={{ flex: 1, position: 'relative', width: '100%' }}>
           <div style={{ position: 'absolute', top: '-15px', left: '-15px', width: '100%', height: '100%', border: '1px solid #d4af37', zIndex: 1 }}></div>
@@ -166,25 +132,6 @@ const JewelrySkeleton = ({ onBack }) => {
               <p style={{ fontSize: '1.5rem', color: '#d4af37' }}>$18,500</p>
             </div>
             <button style={{ background: '#d4af37', color: '#000', border: 'none', padding: '15px 35px', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}>
-=======
-      <section style={{ background: '#111', padding: '120px 10%', display: 'flex', gap: '80px', alignItems: 'center' }}>
-        <div style={{ flex: 1, position: 'relative' }}>
-          <div style={{ position: 'absolute', top: '-20px', left: '-20px', width: '100%', height: '100%', border: '1px solid #d4af37', zIndex: 1 }}></div>
-          <img src="https://images.unsplash.com/photo-1573408302185-91275f923984?auto=format&fit=crop&q=80&w=2075" alt="Featured" style={{ width: '100%', position: 'relative', zIndex: 2 }} />
-        </div>
-        <div style={{ flex: 1 }}>
-          <FaStar style={{ color: '#d4af37', marginBottom: '20px' }} />
-          <h2 style={{ fontSize: '3.5rem', fontWeight: 200, marginBottom: '30px' }}>The Aurora <br/> Solitaire</h2>
-          <p style={{ color: '#888', lineHeight: 1.8, marginBottom: '40px', fontSize: '1.1rem' }}>
-            A masterpiece of light and precision. Hand-selected for its unrivaled clarity and brilliance, the Aurora Solitaire represents the pinnacle of our craftsmanship.
-          </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
-            <div>
-              <p style={{ fontSize: '0.8rem', color: '#555', letterSpacing: '2px' }}>PRICE</p>
-              <p style={{ fontSize: '1.8rem', color: '#d4af37' }}>$18,500</p>
-            </div>
-            <button style={{ background: '#d4af37', color: '#000', border: 'none', padding: '18px 45px', fontWeight: 700, cursor: 'pointer' }}>
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
               PURCHASE PIECE
             </button>
           </div>
