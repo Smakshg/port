@@ -20,14 +20,14 @@ const HelixSkeleton = ({ onBack }) => {
     offset: ["start start", "end end"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 60, damping: 20 });
+  const isMobile = window.innerWidth < 768;
+  const cardHeight = isMobile ? 250 : 400;
 
-  // Sync Rotation: Rotate exactly -360 degrees if we want to loop once, 
-  // but let's rotate based on the number of items to ensure the last one comes to face us.
+  // Sync Rotation: Rotate based on the number of items
   const rotation = useTransform(smoothProgress, [0, 1], [0, -((items.length - 1) / items.length) * 360]);
 
   // Sync Vertical Travel: Shift the whole spiral up so each card hits the center
-  const verticalTravel = useTransform(smoothProgress, [0, 1], [0, -((items.length - 1) * 400)]);
+  const verticalTravel = useTransform(smoothProgress, [0, 1], [0, -((items.length - 1) * cardHeight)]);
 
   
   return (
@@ -51,7 +51,7 @@ const HelixSkeleton = ({ onBack }) => {
       </div>
 
       {/* Sticky Spiral Scene */}
-      <div style={{ position: 'sticky', top: 0, height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', perspective: '2000px' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', perspective: isMobile ? '1200px' : '2000px' }}>
         <motion.div 
           style={{ 
             transformStyle: 'preserve-3d',
@@ -64,12 +64,12 @@ const HelixSkeleton = ({ onBack }) => {
           {items.map((item, i) => {
             // Distribute points in a cylinder
             const angle = (i / items.length) * (Math.PI * 2);
-            const radius = 650; 
+            const radius = isMobile ? 300 : 700; 
             const x = Math.sin(angle) * radius;
             const z = Math.cos(angle) * radius;
             
             // i=0 starts at y=0 (center of screen)
-            const y = i * 400; 
+            const y = i * cardHeight; 
 
             return (
               <HelixCard 
@@ -110,14 +110,16 @@ const HelixCard = ({ item, x, y, z, angle, rotation }) => {
 
   const scale = useTransform(opacity, [0.1, 1], [0.8, 1.1]);
 
+  const isMobile = window.innerWidth < 768;
+
   return (
     <motion.div
       style={{
         position: 'absolute',
         top: 0,
         left: 0,
-        width: '450px', 
-        height: '300px',
+        width: isMobile ? '280px' : '450px', 
+        height: isMobile ? '200px' : '300px',
         transformStyle: 'preserve-3d',
         translateX: x,
         translateY: y,
@@ -136,20 +138,20 @@ const HelixCard = ({ item, x, y, z, angle, rotation }) => {
         style={{ 
           width: '100%', 
           height: '100%', 
-          padding: '40px', 
-          borderLeft: `10px solid ${item.color}`,
+          padding: isMobile ? '20px' : '40px', 
+          borderLeft: `${isMobile ? '6px' : '10px'} solid ${item.color}`,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           boxShadow: `0 30px 60px -12px rgba(0,0,0,0.9), 0 0 40px ${item.color}22`,
           background: 'rgba(10,10,10,0.8)',
           backfaceVisibility: 'hidden',
-          borderRadius: '20px'
+          borderRadius: isMobile ? '12px' : '20px'
         }}
       >
-        <div style={{ fontSize: '2.5rem', color: item.color, marginBottom: '20px' }}>{item.icon}</div>
-        <h3 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '15px', color: '#fff', letterSpacing: '-1px' }}>{item.title}</h3>
-        <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{item.desc}</p>
+        <div style={{ fontSize: isMobile ? '1.5rem' : '2.5rem', color: item.color, marginBottom: isMobile ? '10px' : '20px' }}>{item.icon}</div>
+        <h3 style={{ fontSize: isMobile ? '1.2rem' : '2.2rem', fontWeight: 900, marginBottom: isMobile ? '5px' : '15px', color: '#fff', letterSpacing: '-1px' }}>{item.title}</h3>
+        <p style={{ fontSize: isMobile ? '0.8rem' : '1.2rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{item.desc}</p>
       </div>
     </motion.div>
   );

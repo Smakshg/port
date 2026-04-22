@@ -52,23 +52,25 @@ const StoreSkeleton = ({ onBack }) => {
 
       {/* Store Header */}
       <header style={{ padding: '20px 5%', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, background: '#fff', zIndex: 1000 }}>
-        <div style={{ fontWeight: 900, fontSize: '1.8rem', letterSpacing: '-2px' }}>INFINITE</div>
+        <div style={{ fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-2px' }}>INFINITE</div>
         
-        <div style={{ display: 'flex', gap: '30px', fontWeight: 600, fontSize: '0.9rem' }}>
-          <span>Shop All</span>
-          <span>New Arrivals</span>
-          <span>Collections</span>
-        </div>
+        {window.innerWidth >= 768 && (
+          <div style={{ display: 'flex', gap: '30px', fontWeight: 600, fontSize: '0.9rem' }}>
+            <span>Shop All</span>
+            <span>New Arrivals</span>
+            <span>Collections</span>
+          </div>
+        )}
 
-      <div style={{ display: 'flex', gap: '20px', fontSize: '1.2rem', alignItems: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'center', background: '#f5f5f5', padding: '5px 15px', borderRadius: '20px', fontSize: '0.9rem' }}>
-          <FaSearch style={{ marginRight: '10px', opacity: 0.5 }}/>
+      <div style={{ display: 'flex', gap: '15px', fontSize: '1.2rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', background: '#f5f5f5', padding: '5px 12px', borderRadius: '20px', fontSize: '0.8rem', maxWidth: window.innerWidth < 480 ? '120px' : 'auto' }}>
+          <FaSearch style={{ marginRight: '8px', opacity: 0.5 }}/>
           <input 
             type="text" 
-            placeholder="Search products..." 
+            placeholder="Search..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            style={{ border: 'none', background: 'transparent', outline: 'none' }}
+            style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%' }}
           />
         </div>
         <div style={{ position: 'relative', cursor: 'pointer' }}>
@@ -77,7 +79,7 @@ const StoreSkeleton = ({ onBack }) => {
             key={cartCount}
             initial={{ scale: 1.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            style={{ position: 'absolute', top: '-10px', right: '-10px', background: '#e11d48', color: '#fff', fontSize: '0.7rem', width: '18px', height: '18px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800 }}>
+            style={{ position: 'absolute', top: '-8px', right: '-8px', background: '#e11d48', color: '#fff', fontSize: '0.6rem', width: '16px', height: '16px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800 }}>
             {cartCount}
           </motion.span>
         </div>
@@ -100,27 +102,31 @@ const StoreSkeleton = ({ onBack }) => {
 
 
       {/* Main Content Area */}
-      <div style={{ display: 'flex', padding: '40px 5%', gap: '40px' }}>
+      <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', padding: '40px 5%', gap: '40px' }}>
         
-        {/* Sidebar Filters */}
-        <aside style={{ width: '250px' }}>
+        {/* Sidebar Filters - Top bar on mobile */}
+        <aside style={{ width: window.innerWidth < 768 ? '100%' : '250px' }}>
           <h3 style={{ marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '10px' }}><FaFilter size={14}/> FILTERS</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'row' : 'column', gap: '12px', overflowX: 'auto', paddingBottom: '10px' }}>
             {['All', 'Watches', 'Audio', 'Travel', 'Nodal', 'Footwear', 'Tech'].map(cat => (
               <div 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 style={{ 
                   cursor: 'pointer', 
+                  whiteSpace: 'nowrap',
                   fontWeight: activeCategory === cat ? 800 : 400,
                   color: activeCategory === cat ? '#000' : '#666',
                   fontSize: '0.9rem',
+                  padding: window.innerWidth < 768 ? '5px 15px' : '0',
+                  background: window.innerWidth < 768 && activeCategory === cat ? '#f5f5f5' : 'transparent',
+                  borderRadius: '20px',
                   display: 'flex',
                   justifyContent: 'space-between'
                 }}
               >
                 {cat}
-                {activeCategory === cat && <motion.div layoutId="dot" style={{ width: '6px', height: '6px', background: '#000', borderRadius: '50%', alignSelf: 'center' }}/>}
+                {window.innerWidth >= 768 && activeCategory === cat && <motion.div layoutId="dot" style={{ width: '6px', height: '6px', background: '#000', borderRadius: '50%', alignSelf: 'center' }}/>}
               </div>
             ))}
           </div>
@@ -128,12 +134,12 @@ const StoreSkeleton = ({ onBack }) => {
 
         {/* Product Grid */}
         <main style={{ flex: 1 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '30px' }}>
-            <h2 style={{ fontSize: '2rem', fontWeight: 200 }}>{activeCategory} Products</h2>
-            <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>Showing {filteredProducts.length} results</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '30px', flexWrap: 'wrap', gap: '10px' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: 200 }}>{activeCategory} Products</h2>
+            <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>{filteredProducts.length} results</span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '40px' }}>
             <AnimatePresence mode='popLayout'>
               {filteredProducts.map((product) => (
                 <motion.div 

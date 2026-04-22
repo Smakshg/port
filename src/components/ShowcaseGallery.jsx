@@ -58,7 +58,7 @@ const templates = [
 
 const ShowcaseGallery = () => {
   return (
-    <section style={{ padding: '120px 0', minHeight: '100vh' }}>
+    <section style={{ padding: 'var(--section-padding) 0', minHeight: '100vh' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,15 +66,20 @@ const ShowcaseGallery = () => {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>
+          <h1 style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)', marginBottom: '1.5rem' }}>
             Template <span className="text-gradient">Skeletons</span>
           </h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
             Choose a foundation for your next project. These skeletons are pre-built archetypes used to showcase different UI possibilities to clients.
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', 
+          gap: '2.5rem' 
+        }}>
+
           {templates.map((template, idx) => (
             <motion.div
               key={template.id}
