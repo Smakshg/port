@@ -2,7 +2,7 @@ import React, { Suspense, useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
+import Services from './components/Services';
 import Projects from './components/Projects';
 import ShowcaseGallery from './components/ShowcaseGallery';
 import SaaSSkeleton from './components/skeletons/SaaSSkeleton';
@@ -74,7 +74,7 @@ function App() {
         return (
           <>
             <Hero />
-            <Skills />
+            <Services />
           </>
         );
     }

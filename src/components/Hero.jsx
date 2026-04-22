@@ -6,22 +6,36 @@ const Hero = () => {
     <section id="home" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '80px' }}>
       <div className="container" style={{ textAlign: 'center' }}>
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 style={{ fontSize: '4rem', marginBottom: '1rem', letterSpacing: '-0.02em' }}>
-            Hi, I'm <span className="text-gradient">Smaksh Gupta</span>
+          <span style={{ 
+            display: 'inline-block', 
+            padding: '0.5rem 1.2rem', 
+            borderRadius: '50px', 
+            background: 'var(--glass-bg)', 
+            border: '1px solid var(--glass-border)',
+            fontSize: '0.9rem',
+            fontWeight: 600,
+            color: 'var(--accent-secondary)',
+            marginBottom: '2rem'
+          }}>
+            NEXT-GEN DIGITAL SOLUTIONS
+          </span>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', marginBottom: '1.5rem', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+            Architecting the Future of <br />
+            <span className="text-gradient">Intelligent Systems</span>
           </h1>
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 400, maxWidth: '600px', margin: '0 auto 2rem' }}>
-            Fullstack AI Engineer | Flutter Developer | Web Developer | Data Engineering Enthusiast
+          <h2 style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', fontWeight: 400, maxWidth: '700px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}>
+            Empowering businesses through cutting-edge AI engineering, bespoke software development, and transformative data architectures.
           </h2>
         </motion.div>
 
@@ -29,14 +43,15 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}
+          style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}
         >
-          <a href="#projects" className="btn btn-primary">View My Work</a>
-
+          <a href="#services" className="btn btn-primary">Our Solutions</a>
+          <a href="#contact" className="btn btn-outline">Consult Our Experts</a>
         </motion.div>
       </div>
     </section>
   );
 };
+
 
 export default Hero;
