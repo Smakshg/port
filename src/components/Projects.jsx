@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaRocket, FaChartLine, FaRobot, FaPlatformProvider, FaHospital, FaUtensils, FaGraduationCap, FaTools, FaLightbulb, FaCogs, FaChevronRight } from 'react-icons/fa';
+import { FaRocket, FaChartLine, FaRobot, FaLayerGroup, FaHospital, FaUtensils, FaGraduationCap, FaTools, FaLightbulb, FaCogs, FaChevronRight } from 'react-icons/fa';
 
 const coreSolutions = [
   {
@@ -28,7 +28,7 @@ const coreSolutions = [
     color: '#10b981'
   },
   {
-    icon: <FaPlatformProvider />,
+    icon: <FaLayerGroup />,
     title: 'Service Platform Solution',
     desc: 'Build robust service aggregators like Zomato or Urban Company.',
     bullets: ['Seamless Booking Systems', 'Integrated Payment Gateways', 'Provider/User Dashboards'],
@@ -72,9 +72,9 @@ const Solutions = () => {
         </motion.div>
 
         {/* 2. Core Solutions Grid */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', 
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
           gap: '2rem',
           marginBottom: '6rem'
         }}>
@@ -98,7 +98,7 @@ const Solutions = () => {
               <div style={{ fontSize: '2.5rem', color: sol.color, marginBottom: '1.5rem' }}>{sol.icon}</div>
               <h3 style={{ fontSize: '1.6rem', marginBottom: '1rem', fontWeight: 800 }}>{sol.title}</h3>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: 1.6 }}>{sol.desc}</p>
-              
+
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', flex: 1 }}>
                 {sol.bullets.map((b, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
@@ -120,18 +120,18 @@ const Solutions = () => {
           <h3 style={{ textAlign: 'center', fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: 900, marginBottom: '3rem' }}>
             Solutions for <span className="text-gradient">Every Industry</span>
           </h3>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', 
-            gap: '1.5rem' 
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+            gap: '1.5rem'
           }}>
             {industrySolutions.map((ind, idx) => (
               <motion.div
                 key={idx}
-                style={{ 
-                  background: 'rgba(255,255,255,0.03)', 
-                  padding: '2rem', 
-                  borderRadius: '15px', 
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  padding: '2rem',
+                  borderRadius: '15px',
                   textAlign: 'center',
                   border: '1px solid var(--glass-border)'
                 }}
