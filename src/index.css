@@ -11,6 +11,8 @@
   --glass-border: rgba(255, 255, 255, 0.08);
   --section-padding: 120px;
   --mobile-padding: 60px;
+  --nav-height: 70px;
+  --nav-offset: 120px;
 }
 
 * {
@@ -109,13 +111,13 @@ a {
 /* Responsive Utilities */
 @media (max-width: 1024px) {
   :root {
-    --section-padding: 80px;
+    --section-padding: 100px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 60px;
+    --section-padding: 100px;
   }
   
   h1 { font-size: clamp(2rem, 10vw, 3rem) !important; }
@@ -125,11 +127,19 @@ a {
   .container {
     padding: 0 24px;
   }
+
+  section {
+    padding-top: var(--nav-offset) !important;
+  }
+
+  main {
+    padding-top: 20px; /* Base spacer */
+  }
 }
 
 @media (max-width: 480px) {
   :root {
-    --section-padding: 40px;
+    --section-padding: 100px;
   }
   .container {
     padding: 0 16px;

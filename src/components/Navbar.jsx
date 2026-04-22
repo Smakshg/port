@@ -30,7 +30,7 @@ const Navbar = ({ setView, currentView }) => {
         transform: 'translateX(-50%)',
         width: '95%',
         maxWidth: '1200px',
-        padding: '0.8rem 2rem',
+        padding: scrolled ? '0.6rem 1.5rem' : '0.8rem 2rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
