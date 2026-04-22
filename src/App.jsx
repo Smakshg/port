@@ -68,9 +68,6 @@ function App() {
       case 'contact':
         return <Contact />;
       default:
-
-
-
         return (
           <>
             <Hero />
@@ -99,14 +96,11 @@ function App() {
 
       {isMainPage && (
         <footer style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-secondary)', borderTop: '1px solid var(--glass-border)', marginTop: '50px' }}>
-          <p>&copy; {new Date().getFullYear()} Smaksh Gupta. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NEXUS. All rights reserved.</p>
         </footer>
       )}
     </>
   );
 }
 
-
-
 export default App;
-

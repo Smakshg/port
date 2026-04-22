@@ -31,6 +31,7 @@ const StoreSkeleton = ({ onBack }) => {
 
   return (
     <div style={{ background: '#fff', color: '#000', minHeight: '100vh', fontFamily: "'Outfit', sans-serif" }}>
+<<<<<<< HEAD
       {/* Back Button */}
       <button
         onClick={onBack}
@@ -48,6 +49,16 @@ const StoreSkeleton = ({ onBack }) => {
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
+=======
+       {/* Back Button */}
+       <button 
+        onClick={onBack}
+        style={{ 
+          position: 'fixed', top: '20px', left: '20px', zIndex: 1000, 
+          background: '#000', color: '#fff', border: 'none',
+          padding: '10px 20px', borderRadius: '30px', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', gap: '8px', zIndex: 1001,
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           fontWeight: 600
         }}
       >
@@ -61,6 +72,7 @@ const StoreSkeleton = ({ onBack }) => {
 
       {/* Store Header */}
       <header style={{ padding: '20px 5%', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, background: '#fff', zIndex: 1000 }}>
+<<<<<<< HEAD
         <div style={{ fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-2px' }}>INFINITE</div>
 
         {window.innerWidth >= 768 && (
@@ -130,12 +142,81 @@ const StoreSkeleton = ({ onBack }) => {
                   padding: window.innerWidth < 768 ? '5px 15px' : '0',
                   background: window.innerWidth < 768 && activeCategory === cat ? '#f5f5f5' : 'transparent',
                   borderRadius: '20px',
+=======
+        <div style={{ fontWeight: 900, fontSize: '1.8rem', letterSpacing: '-2px' }}>INFINITE</div>
+        
+        <div style={{ display: 'flex', gap: '30px', fontWeight: 600, fontSize: '0.9rem' }}>
+          <span>Shop All</span>
+          <span>New Arrivals</span>
+          <span>Collections</span>
+        </div>
+
+      <div style={{ display: 'flex', gap: '20px', fontSize: '1.2rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', background: '#f5f5f5', padding: '5px 15px', borderRadius: '20px', fontSize: '0.9rem' }}>
+          <FaSearch style={{ marginRight: '10px', opacity: 0.5 }}/>
+          <input 
+            type="text" 
+            placeholder="Search products..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{ border: 'none', background: 'transparent', outline: 'none' }}
+          />
+        </div>
+        <div style={{ position: 'relative', cursor: 'pointer' }}>
+          <FaShoppingCart />
+          <motion.span 
+            key={cartCount}
+            initial={{ scale: 1.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            style={{ position: 'absolute', top: '-10px', right: '-10px', background: '#e11d48', color: '#fff', fontSize: '0.7rem', width: '18px', height: '18px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800 }}>
+            {cartCount}
+          </motion.span>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {showToast && (
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            style={{ position: 'fixed', bottom: '30px', right: '30px', background: '#000', color: '#fff', padding: '15px 30px', borderRadius: '8px', zIndex: 2000, display: 'flex', alignItems: 'center', gap: '10px' }}
+          >
+            <div style={{ background: '#10b981', width: '10px', height: '10px', borderRadius: '50%' }}></div>
+            Item added to your cart!
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+
+
+      {/* Main Content Area */}
+      <div style={{ display: 'flex', padding: '40px 5%', gap: '40px' }}>
+        
+        {/* Sidebar Filters */}
+        <aside style={{ width: '250px' }}>
+          <h3 style={{ marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '10px' }}><FaFilter size={14}/> FILTERS</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {['All', 'Watches', 'Audio', 'Travel', 'Nodal', 'Footwear', 'Tech'].map(cat => (
+              <div 
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                style={{ 
+                  cursor: 'pointer', 
+                  fontWeight: activeCategory === cat ? 800 : 400,
+                  color: activeCategory === cat ? '#000' : '#666',
+                  fontSize: '0.9rem',
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
                   display: 'flex',
                   justifyContent: 'space-between'
                 }}
               >
                 {cat}
+<<<<<<< HEAD
                 {window.innerWidth >= 768 && activeCategory === cat && <motion.div layoutId="dot" style={{ width: '6px', height: '6px', background: '#000', borderRadius: '50%', alignSelf: 'center' }} />}
+=======
+                {activeCategory === cat && <motion.div layoutId="dot" style={{ width: '6px', height: '6px', background: '#000', borderRadius: '50%', alignSelf: 'center' }}/>}
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
               </div>
             ))}
           </div>
@@ -143,6 +224,7 @@ const StoreSkeleton = ({ onBack }) => {
 
         {/* Product Grid */}
         <main style={{ flex: 1 }}>
+<<<<<<< HEAD
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '30px', flexWrap: 'wrap', gap: '10px' }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: 200 }}>{activeCategory} Products</h2>
             <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>{filteredProducts.length} results</span>
@@ -152,6 +234,17 @@ const StoreSkeleton = ({ onBack }) => {
             <AnimatePresence mode='popLayout'>
               {filteredProducts.map((product) => (
                 <motion.div
+=======
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '30px' }}>
+            <h2 style={{ fontSize: '2rem', fontWeight: 200 }}>{activeCategory} Products</h2>
+            <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>Showing {filteredProducts.length} results</span>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '40px' }}>
+            <AnimatePresence mode='popLayout'>
+              {filteredProducts.map((product) => (
+                <motion.div 
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
                   key={product.id}
                   layout
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -161,9 +254,15 @@ const StoreSkeleton = ({ onBack }) => {
                   style={{ cursor: 'pointer' }}
                 >
                   <div style={{ position: 'relative', height: '350px', background: '#f9f9f9', overflow: 'hidden', borderRadius: '4px' }}>
+<<<<<<< HEAD
                     <img
                       src={product.image}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+=======
+                    <img 
+                      src={product.image} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }} 
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
                       alt={product.name}
                       onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
                       onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
@@ -175,11 +274,19 @@ const StoreSkeleton = ({ onBack }) => {
                   <div style={{ marginTop: '20px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
                       <span style={{ fontSize: '0.7rem', textTransform: 'uppercase', opacity: 0.5, letterSpacing: '1px' }}>{product.category}</span>
+<<<<<<< HEAD
                       <div style={{ display: 'flex', gap: '2px' }}><FaStar size={10} color="#fbbf24" /><FaStar size={10} color="#fbbf24" /><FaStar size={10} color="#fbbf24" /><FaStar size={10} color="#fbbf24" /><FaStar size={10} color="#fbbf24" /></div>
                     </div>
                     <h3 style={{ fontWeight: 600, fontSize: '1.1rem' }}>{product.name}</h3>
                     <p style={{ fontWeight: 900, marginTop: '10px' }}>${product.price}.00</p>
                     <motion.button
+=======
+                      <div style={{ display: 'flex', gap: '2px' }}><FaStar size={10} color="#fbbf24"/><FaStar size={10} color="#fbbf24"/><FaStar size={10} color="#fbbf24"/><FaStar size={10} color="#fbbf24"/><FaStar size={10} color="#fbbf24"/></div>
+                    </div>
+                    <h3 style={{ fontWeight: 600, fontSize: '1.1rem' }}>{product.name}</h3>
+                    <p style={{ fontWeight: 900, marginTop: '10px' }}>${product.price}.00</p>
+                    <motion.button 
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
                       whileTap={{ scale: 0.95 }}
                       onClick={addToCart}
                       style={{ width: '100%', background: '#000', color: '#fff', border: 'none', padding: '12px', marginTop: '15px', cursor: 'pointer', fontWeight: 600 }}

@@ -53,9 +53,6 @@ const templates = [
   }
 ];
 
-
-
-
 const ShowcaseGallery = () => {
   return (
     <section style={{ padding: 'var(--section-padding) 0', minHeight: '100vh' }}>
@@ -66,11 +63,11 @@ const ShowcaseGallery = () => {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          <h1 style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)', marginBottom: '1.5rem' }}>
-            Template <span className="text-gradient">Skeletons</span>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', marginBottom: '1.5rem' }}>
+            Product <span className="text-gradient">Ecosystem</span>
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
-            Choose a foundation for your next project. These skeletons are pre-built archetypes used to showcase different UI possibilities to clients.
+            Explore our ready-to-deploy product architectures designed to accelerate your speed-to-market.
           </p>
         </motion.div>
 
@@ -79,7 +76,6 @@ const ShowcaseGallery = () => {
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', 
           gap: '2.5rem' 
         }}>
-
           {templates.map((template, idx) => (
             <motion.div
               key={template.id}
@@ -105,14 +101,14 @@ const ShowcaseGallery = () => {
                 />
               </div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>{template.name}</h3>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem', height: '4.5rem', overflow: 'hidden' }}>
                 {template.description}
               </p>
               <button 
                 className="btn btn-primary" 
                 style={{ width: '100%', background: `linear-gradient(135deg, ${template.color}, #000)` }}
               >
-                View Skeleton
+                Explore Product
               </button>
             </motion.div>
           ))}

@@ -24,11 +24,18 @@ const DashboardSkeleton = ({ onBack }) => {
   }, []);
 
   return (
+<<<<<<< HEAD
     <div style={{ background: '#050505', color: '#fff', minHeight: '100vh', display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', fontFamily: "'Inter', sans-serif" }}>
       {/* Sidebar - Hidden on small screens for simplicity */}
       {window.innerWidth >= 768 && (
         <aside style={{ width: '280px', borderRight: '1px solid rgba(255,255,255,0.1)', padding: '30px', display: 'flex', flexDirection: 'column' }}>
           <div 
+=======
+    <div style={{ background: '#050505', color: '#fff', minHeight: '100vh', display: 'flex', fontFamily: "'Inter', sans-serif" }}>
+      {/* Sidebar */}
+      <aside style={{ width: '280px', borderRight: '1px solid rgba(255,255,255,0.1)', padding: '30px', display: 'flex', flexDirection: 'column' }}>
+        <div 
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           onClick={onBack}
           style={{ 
             marginBottom: '50px', fontWeight: 900, fontSize: '1.2rem', cursor: 'pointer',
@@ -69,6 +76,7 @@ const DashboardSkeleton = ({ onBack }) => {
           <FaArrowLeft size={12}/> Exit Preview
         </button>
       </aside>
+<<<<<<< HEAD
       )}
 
       {/* Main Content */}
@@ -78,6 +86,16 @@ const DashboardSkeleton = ({ onBack }) => {
           <div>
             <h2 style={{ fontSize: '1.8rem', fontWeight: 800 }}>Overview</h2>
             <div style={{ display: 'flex', gap: '10px', marginTop: '10px', flexWrap: 'wrap' }}>
+=======
+
+      {/* Main Content */}
+      <main style={{ flex: 1, padding: '40px', overflowY: 'auto' }}>
+        {/* Header */}
+        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
+          <div>
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 800 }}>Overview</h2>
+            <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
                 {['Daily', 'Weekly', 'Monthly'].map(t => (
                     <button 
                         key={t}
@@ -90,6 +108,7 @@ const DashboardSkeleton = ({ onBack }) => {
             </div>
           </div>
 
+<<<<<<< HEAD
           <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
             {window.innerWidth < 768 && (
               <button 
@@ -103,16 +122,28 @@ const DashboardSkeleton = ({ onBack }) => {
               <input style={{ background: 'transparent', border: 'none', color: '#fff', width: '100%' }} placeholder="Search..."/>
             </div>
             <div style={{ width: '45px', height: '45px', flexShrink: 0, borderRadius: '12px', background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)' }}></div>
+=======
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <div style={{ background: '#111', padding: '10px 20px', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '10px', border: '1px solid #222' }}>
+              <FaSearch color="#444"/>
+              <input style={{ background: 'transparent', border: 'none', color: '#fff' }} placeholder="Search data..."/>
+            </div>
+            <div style={{ width: '45px', height: '45px', borderRadius: '12px', background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)' }}></div>
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           </div>
         </header>
 
         {/* Stats Grid */}
+<<<<<<< HEAD
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', 
           gap: '25px', 
           marginBottom: '40px' 
         }}>
+=======
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '25px', marginBottom: '40px' }}>
+>>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
           {[
             { label: 'Revenue', value: '$45,231', change: '+20.1%' },
             { label: 'Subscriptions', value: '+2350', change: '+180.1%' },

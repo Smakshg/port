@@ -45,11 +45,12 @@ const Contact = () => {
         animate={{ opacity: 1, y: 0 }}
         style={{ textAlign: 'center', marginBottom: '80px' }}
       >
-        <h1 style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '20px' }}>Let's <span className="text-gradient">Connect.</span></h1>
+        <h1 style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '20px' }}>Start a <span className="text-gradient">Partnership.</span></h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-          Have a vision you'd like to bring to life? Reach out through any of the channels below. I'm always open to new opportunities and creative collaborations.
+          Have a vision for your enterprise? Reach out to our team of experts. We are ready to help you architect your next digital breakthrough.
         </p>
       </motion.div>
+
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', width: '100%', maxWidth: '1200px' }}>
         {contactInfo.map((info) => (

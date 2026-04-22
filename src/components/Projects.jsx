@@ -39,15 +39,20 @@ const Projects = () => {
     <section id="projects" style={{ padding: '100px 0', minHeight: '100vh' }}>
       <div className="container">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          <h2 style={{ fontSize: '3rem', marginBottom: '3rem', textAlign: 'center' }}>
-            <span className="text-gradient">Featured Work</span>
+          <h2 style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>
+            Enterprise <span className="text-gradient">Solutions</span>
           </h2>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+            Discover how we've helped our partners overcome technological hurdles through innovative engineering and strategic thinking.
+          </p>
         </motion.div>
+
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
           {projects.map((proj, idx) => (
