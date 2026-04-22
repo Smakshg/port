@@ -16,7 +16,7 @@ const About = () => {
             <span className="text-gradient">Our Mission</span>
           </h2>
           <p style={{ color: 'var(--text-secondary)', maxWidth: '800px', margin: '0 auto 4rem', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            At <strong style={{ color: 'var(--text-primary)' }}>NEXUS</strong>, we bridge the gap between complex challenges and elegant technology. We are a collective of engineers, designers, and visionaries dedicated to building high-performance systems that scale.
+            At <strong style={{ color: 'var(--text-primary)' }}>NEXSG</strong>, we bridge the gap between complex challenges and elegant technology. We are a collective of engineers, designers, and visionaries dedicated to building high-performance systems that scale.
           </p>
         </motion.div>
 

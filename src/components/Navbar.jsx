@@ -23,7 +23,7 @@ const Navbar = ({ setView, currentView }) => {
         style={{ fontWeight: 800, fontSize: '1.4rem', fontFamily: 'Outfit, sans-serif', cursor: 'pointer', letterSpacing: '2px' }}
         onClick={() => window.location.hash = 'home'}
       >
-        <span className="text-gradient">NEXUS</span>
+        <span className="text-gradient">NEXSG</span>
       </div>
       <ul style={{ 
         display: 'flex', 

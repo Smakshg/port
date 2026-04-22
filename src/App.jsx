@@ -18,7 +18,7 @@ import Contact from './components/Contact';
 const Background3D = React.lazy(() => import('./components/Background3D'));
 
 function App() {
-  const [view, setView] = useState('home'); 
+  const [view, setView] = useState('home');
   const templateSkeletons = ['saas', 'studio', 'dashboard', 'business', 'store', 'helix', 'jewelry'];
   const isTemplateSkeleton = templateSkeletons.includes(view);
 
@@ -96,7 +96,7 @@ function App() {
 
       {isMainPage && (
         <footer style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-secondary)', borderTop: '1px solid var(--glass-border)', marginTop: '50px' }}>
-          <p>&copy; {new Date().getFullYear()} NEXUS. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NEXSG. All rights reserved.</p>
         </footer>
       )}
     </>
