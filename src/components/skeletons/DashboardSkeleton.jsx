@@ -26,55 +26,53 @@ const DashboardSkeleton = ({ onBack }) => {
   const isMobile = window.innerWidth < 768;
 
   return (
-    <div style={{ background: '#050505', color: '#fff', minHeight: '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', fontFamily: "'Inter', sans-serif" }}>
+    <div className="dashboard-container" style={{ background: '#050505', color: '#fff', minHeight: '100vh', display: 'flex', fontFamily: "'Inter', sans-serif" }}>
       {/* Sidebar */}
-      {!isMobile && (
-        <aside style={{ width: '280px', borderRight: '1px solid rgba(255,255,255,0.1)', padding: '30px', display: 'flex', flexDirection: 'column' }}>
-          <div 
-            onClick={onBack}
-            style={{ 
-              marginBottom: '50px', fontWeight: 900, fontSize: '1.2rem', cursor: 'pointer',
-              display: 'flex', alignItems: 'center', gap: '10px'
-            }}
-          >
-            <div style={{ width: '32px', height: '32px', background: '#06b6d4', borderRadius: '8px' }}></div>
-            HORIZON <span style={{ opacity: 0.4, fontSize: '0.8rem' }}>PRO</span>
-          </div>
+      <aside className="dashboard-sidebar" style={{ width: '280px', borderRight: '1px solid rgba(255,255,255,0.1)', padding: '30px', display: 'flex', flexDirection: 'column' }}>
+        <div 
+          onClick={onBack}
+          style={{ 
+            marginBottom: '50px', fontWeight: 900, fontSize: '1.2rem', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', gap: '10px'
+          }}
+        >
+          <div style={{ width: '32px', height: '32px', background: '#06b6d4', borderRadius: '8px' }}></div>
+          HORIZON <span style={{ opacity: 0.4, fontSize: '0.8rem' }}>PRO</span>
+        </div>
 
-          <nav style={{ flex: 1 }}>
-            {[
-              { icon: <FaThLarge />, label: 'Dashboard', active: true },
-              { icon: <FaUsers />, label: 'Team' },
-              { icon: <FaBell />, label: 'Notifications' },
-              { icon: <FaCog />, label: 'Settings' },
-            ].map((item, idx) => (
-              <div key={idx} style={{ 
-                display: 'flex', alignItems: 'center', gap: '15px', padding: '12px 15px',
-                borderRadius: '12px', marginBottom: '10px', cursor: 'pointer',
-                background: item.active ? 'rgba(6,182,212,0.1)' : 'transparent',
-                color: item.active ? '#06b6d4' : '#64748b'
-              }}>
-                {item.icon}
-                <span style={{ fontWeight: 600 }}>{item.label}</span>
-              </div>
-            ))}
-          </nav>
+        <nav style={{ flex: 1 }}>
+          {[
+            { icon: <FaThLarge />, label: 'Dashboard', active: true },
+            { icon: <FaUsers />, label: 'Team' },
+            { icon: <FaBell />, label: 'Notifications' },
+            { icon: <FaCog />, label: 'Settings' },
+          ].map((item, idx) => (
+            <div key={idx} style={{ 
+              display: 'flex', alignItems: 'center', gap: '15px', padding: '12px 15px',
+              borderRadius: '12px', marginBottom: '10px', cursor: 'pointer',
+              background: item.active ? 'rgba(6,182,212,0.1)' : 'transparent',
+              color: item.active ? '#06b6d4' : '#64748b'
+            }}>
+              {item.icon}
+              <span style={{ fontWeight: 600 }}>{item.label}</span>
+            </div>
+          ))}
+        </nav>
 
-          <button 
-            onClick={onBack}
-            style={{ 
-              background: 'rgba(255,255,255,0.05)', color: '#fff', border: 'none',
-              padding: '12px', borderRadius: '12px', cursor: 'pointer', marginTop: 'auto',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
-            }}
-          >
-            <FaArrowLeft size={12}/> Exit Preview
-          </button>
-        </aside>
-      )}
+        <button 
+          onClick={onBack}
+          style={{ 
+            background: 'rgba(255,255,255,0.05)', color: '#fff', border: 'none',
+            padding: '12px', borderRadius: '12px', cursor: 'pointer', marginTop: 'auto',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
+          }}
+        >
+          <FaArrowLeft size={12}/> Exit Preview
+        </button>
+      </aside>
 
       {/* Main Content */}
-      <main style={{ flex: 1, padding: isMobile ? '20px' : '40px', overflowY: 'auto', width: '100%' }}>
+      <main className="dashboard-main" style={{ flex: 1, padding: '40px', overflowY: 'auto', width: '100%' }}>
         {/* Header */}
         <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px', flexWrap: 'wrap', gap: '20px' }}>
           <div>
@@ -93,13 +91,12 @@ const DashboardSkeleton = ({ onBack }) => {
           </div>
 
           <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-            {isMobile && (
-              <button 
-                onClick={onBack}
-                style={{ background: '#222', border: 'none', color: '#fff', padding: '10px', borderRadius: '8px' }}>
-                <FaArrowLeft />
-              </button>
-            )}
+            <button 
+              onClick={onBack}
+              className="dashboard-mobile-back"
+              style={{ background: '#222', border: 'none', color: '#fff', padding: '10px', borderRadius: '8px', display: 'none' }}>
+              <FaArrowLeft />
+            </button>
             <div style={{ background: '#111', padding: '10px 20px', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '10px', border: '1px solid #222', maxWidth: '200px' }}>
               <FaSearch color="#444"/>
               <input style={{ background: 'transparent', border: 'none', color: '#fff', width: '100%' }} placeholder="Search..."/>
@@ -130,8 +127,8 @@ const DashboardSkeleton = ({ onBack }) => {
         </div>
 
         {/* Action List */}
-        <div className="glass" style={{ padding: '30px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '25px' }}>
+        <div className="glass" style={{ padding: 'clamp(1.5rem, 5vw, 30px)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '25px', flexWrap: 'wrap', gap: '10px' }}>
                 <h3 style={{ fontWeight: 800 }}>Live Activity Feed</h3>
                 <span style={{ color: '#06b6d4', cursor: 'pointer', fontSize: '0.9rem' }}>View All</span>
             </div>
@@ -144,24 +141,32 @@ const DashboardSkeleton = ({ onBack }) => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
-                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '15px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '15px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', gap: '15px' }}
                     >
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(6,182,212,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#06b6d4' }}>
+                            <div style={{ width: '40px', height: '40px', flexShrink: 0, borderRadius: '12px', background: 'rgba(6,182,212,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#06b6d4' }}>
                               <FaUsers />
                             </div>
                             <div>
-                                <p style={{ fontWeight: 600 }}>{item.action} from {item.user}</p>
+                                <p style={{ fontWeight: 600, fontSize: '0.9rem' }}>{item.action} from {item.user}</p>
                                 <p style={{ fontSize: '0.8rem', color: '#64748b' }}>{item.time}</p>
                             </div>
                         </div>
-                        <FaChevronRight color="#444"/>
+                        <FaChevronRight color="#444" style={{ flexShrink: 0 }}/>
                     </motion.div>
                 ))}
               </AnimatePresence>
             </div>
         </div>
 
+        <style>{`
+          @media (max-width: 768px) {
+            .dashboard-container { flex-direction: column !important; }
+            .dashboard-sidebar { display: none !important; }
+            .dashboard-main { padding: 20px !important; }
+            .dashboard-mobile-back { display: flex !important; }
+          }
+        `}</style>
       </main>
     </div>
   );

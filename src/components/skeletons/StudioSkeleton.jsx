@@ -19,9 +19,9 @@ const StudioSkeleton = ({ onBack }) => {
       </button>
 
       {/* Modern Minimal Header */}
-      <header style={{ padding: window.innerWidth < 768 ? '30px 5%' : '40px 10%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+      <header style={{ padding: 'clamp(20px, 5vw, 40px) 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
         <div style={{ fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-1px' }}>CANVAS STUDIO</div>
-        <div style={{ display: 'flex', gap: window.innerWidth < 768 ? '20px' : '40px', fontWeight: 600, fontSize: '0.8rem' }}>
+        <div style={{ display: 'flex', gap: 'clamp(20px, 5vw, 40px)', fontWeight: 600, fontSize: '0.8rem' }}>
           <span>WORK</span>
           <span>SERVICES</span>
           <span>CONTACT</span>
@@ -29,18 +29,18 @@ const StudioSkeleton = ({ onBack }) => {
       </header>
 
       {/* Visual Hero */}
-      <main style={{ padding: window.innerWidth < 768 ? '100px 5% 50px' : '100px 10%' }}>
+      <main style={{ padding: 'clamp(40px, 10vw, 100px) 5%' }}>
         <motion.div
            initial={{ opacity: 0, y: 40 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 1 }}
         >
-          <h1 style={{ fontSize: 'clamp(3rem, 15vw, 10vw)', lineHeight: 0.9, fontWeight: 900, marginBottom: '60px' }}>
+          <h1 style={{ fontSize: 'clamp(3rem, 15vw, 8rem)', lineHeight: 0.9, fontWeight: 900, marginBottom: 'clamp(30px, 8vw, 60px)' }}>
             PURE <br/> CREATIVE
           </h1>
         </motion.div>
 
-        <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', gap: '40px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }} className="studio-hero-flex">
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -49,7 +49,7 @@ const StudioSkeleton = ({ onBack }) => {
           >
             <motion.div 
               whileHover="hover"
-              style={{ width: '100%', height: '500px', background: '#f0f0f0', position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
+              style={{ width: '100%', height: 'clamp(300px, 50vw, 500px)', background: '#f0f0f0', position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
             >
                 <motion.img 
                   variants={{ hover: { scale: 1.1 } }}
@@ -76,17 +76,25 @@ const StudioSkeleton = ({ onBack }) => {
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ delay: 0.8 }}
-             style={{ flex: 5, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: window.innerWidth < 768 ? '0' : '50px' }}
+             style={{ flex: 5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+             className="studio-hero-desc"
           >
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '30px' }}>Helping brands stand out in a digital noise.</h3>
-            <p style={{ lineHeight: 1.8, opacity: 0.7 }}>
+            <h3 style={{ fontSize: 'clamp(1.5rem, 5vw, 1.8rem)', marginBottom: '20px' }}>Helping brands stand out in a digital noise.</h3>
+            <p style={{ lineHeight: 1.8, opacity: 0.7, fontSize: '1rem' }}>
                 We believe in the power of simplicity. Every pixel should serve a purpose, every animation should tell a story. We don't just build websites; we craft digital experiences.
             </p>
-            <div style={{ marginTop: '40px', borderBottom: '2px solid #000', width: 'fit-content', fontWeight: 900, cursor: 'pointer' }}>
+            <div style={{ marginTop: '30px', borderBottom: '2px solid #000', width: 'fit-content', fontWeight: 900, cursor: 'pointer' }}>
                 LEARN MORE
             </div>
           </motion.div>
         </div>
+
+        <style>{`
+          @media (min-width: 769px) {
+            .studio-hero-flex { flex-direction: row !important; }
+            .studio-hero-desc { padding-left: 50px !important; }
+          }
+        `}</style>
       </main>
     </div>
   );

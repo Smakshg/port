@@ -22,7 +22,7 @@ const HelixSkeleton = ({ onBack }) => {
 
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 60, damping: 20 });
   
-  const isMobile = window.innerWidth < 768;
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
   const cardHeight = isMobile ? 250 : 400;
 
   // Sync Rotation: Rotate based on the number of items
@@ -53,7 +53,7 @@ const HelixSkeleton = ({ onBack }) => {
       </div>
 
       {/* Sticky Spiral Scene */}
-      <div style={{ position: 'sticky', top: 0, height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', perspective: isMobile ? '1200px' : '2000px' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', perspective: 'clamp(1000px, 150vw, 2000px)' }}>
         <motion.div 
           style={{ 
             transformStyle: 'preserve-3d',
@@ -66,7 +66,7 @@ const HelixSkeleton = ({ onBack }) => {
           {items.map((item, i) => {
             // Distribute points in a cylinder
             const angle = (i / items.length) * (Math.PI * 2);
-            const radius = isMobile ? 300 : 700; 
+            const radius = isMobile ? 320 : 750; 
             const x = Math.sin(angle) * radius;
             const z = Math.cos(angle) * radius;
             
@@ -88,7 +88,7 @@ const HelixSkeleton = ({ onBack }) => {
         </motion.div>
       </div>
 
-      <div style={{ position: 'fixed', bottom: '40px', left: '50%', transform: 'translateX(-50%)', opacity: 0.3, fontSize: '0.7rem', letterSpacing: '8px' }}>
+      <div style={{ position: 'fixed', bottom: '40px', left: '50%', transform: 'translateX(-50%)', opacity: 0.3, fontSize: '0.7rem', letterSpacing: '8px', width: '100%', textAlign: 'center' }}>
         DRIVE THROUGH THE SPIRAL
       </div>
     </div>
@@ -112,7 +112,7 @@ const HelixCard = ({ item, x, y, z, angle, rotation }) => {
 
   const scale = useTransform(opacity, [0.1, 1], [0.8, 1.1]);
 
-  const isMobile = window.innerWidth < 768;
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
 
   return (
     <motion.div
@@ -120,7 +120,7 @@ const HelixCard = ({ item, x, y, z, angle, rotation }) => {
         position: 'absolute',
         top: 0,
         left: 0,
-        width: isMobile ? '280px' : '450px', 
+        width: isMobile ? 'min(90vw, 320px)' : '450px', 
         height: isMobile ? '200px' : '300px',
         transformStyle: 'preserve-3d',
         translateX: x,
@@ -151,9 +151,9 @@ const HelixCard = ({ item, x, y, z, angle, rotation }) => {
           borderRadius: isMobile ? '12px' : '20px'
         }}
       >
-        <div style={{ fontSize: isMobile ? '1.5rem' : '2.5rem', color: item.color, marginBottom: isMobile ? '10px' : '20px' }}>{item.icon}</div>
-        <h3 style={{ fontSize: isMobile ? '1.2rem' : '2.2rem', fontWeight: 900, marginBottom: isMobile ? '5px' : '15px', color: '#fff', letterSpacing: '-1px' }}>{item.title}</h3>
-        <p style={{ fontSize: isMobile ? '0.8rem' : '1.2rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{item.desc}</p>
+        <div style={{ fontSize: 'clamp(1.5rem, 6vw, 2.5rem)', color: item.color, marginBottom: isMobile ? '10px' : '20px' }}>{item.icon}</div>
+        <h3 style={{ fontSize: 'clamp(1.2rem, 5vw, 2.2rem)', fontWeight: 900, marginBottom: isMobile ? '5px' : '15px', color: '#fff', letterSpacing: '-1px' }}>{item.title}</h3>
+        <p style={{ fontSize: 'clamp(0.8rem, 3vw, 1.2rem)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{item.desc}</p>
       </div>
     </motion.div>
   );

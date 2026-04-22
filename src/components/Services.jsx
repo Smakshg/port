@@ -43,12 +43,12 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '4rem' }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 8vw, 4rem)' }}
         >
-          <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 8vw, 3rem)', marginBottom: '1.5rem' }}>
             Our <span className="text-gradient">Specializations</span>
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto', fontSize: '1.1rem' }}>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto', fontSize: 'clamp(1rem, 4vw, 1.1rem)', padding: '0 1rem' }}>
             We leverage cutting-edge technologies to build future-ready solutions for ambitious organizations.
           </p>
         </motion.div>
@@ -59,7 +59,7 @@ const Services = () => {
               key={index}
               className="glass"
               style={{
-                padding: '2.5rem',
+                padding: 'clamp(1.5rem, 5vw, 2.5rem)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '1rem',
@@ -76,9 +76,9 @@ const Services = () => {
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{service.icon}</div>
+              <div style={{ fontSize: 'clamp(2rem, 6vw, 3rem)', marginBottom: '0.5rem' }}>{service.icon}</div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 700 }}>{service.title}</h3>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.95rem' }}>
                 {service.description}
               </p>
               

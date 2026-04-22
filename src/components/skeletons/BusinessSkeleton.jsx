@@ -30,63 +30,71 @@ const BusinessSkeleton = ({ onBack }) => {
       </button>
 
       {/* Top Bar */}
-      <div style={{ background: '#1e293b', color: '#fff', padding: '10px 10%', fontSize: '0.8rem', display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ background: '#1e293b', color: '#fff', padding: '10px 5%', fontSize: '0.8rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
         <span>Global Corporate Solutions</span>
         <span><FaPhone size={10}/> +1 (800) CORPORATE</span>
       </div>
 
       {/* Corporate Header */}
-      <header style={{ padding: '20px 10%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', borderBottom: '1px solid #e2e8f0', sticky: 'top' }}>
+      <header style={{ padding: '20px 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', borderBottom: '1px solid #e2e8f0', sticky: 'top', flexWrap: 'wrap', gap: '15px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: 900, color: '#3b82f6', fontSize: '1.4rem' }}>
           <FaBuilding /> PULSE
         </div>
-        <nav style={{ display: 'flex', gap: '30px', fontWeight: 600, fontSize: '0.9rem' }}>
+        <nav style={{ display: 'flex', gap: '15px', fontWeight: 600, fontSize: '0.85rem', flexWrap: 'wrap' }}>
           <span>Solutions</span>
           <span>Sectors</span>
           <span>Insights</span>
-          <button style={{ background: '#3b82f6', color: '#fff', border: 'none', padding: '8px 20px', borderRadius: '5px', cursor: 'pointer' }}>Portal Login</button>
+          <button style={{ background: '#3b82f6', color: '#fff', border: 'none', padding: '6px 15px', borderRadius: '5px', cursor: 'pointer' }}>Portal Login</button>
         </nav>
       </header>
 
       {/* Main Hero */}
-      <section style={{ padding: '80px 10%', display: 'flex', alignItems: 'center', gap: '50px', background: 'linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2301") center/cover' }}>
-        <div style={{ flex: 1 }}>
+      <section style={{ 
+        padding: 'clamp(3rem, 10vw, 80px) 5%', 
+        display: 'flex', 
+        flexDirection: 'column',
+        alignItems: 'center', 
+        gap: '40px', 
+        background: 'linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2301") center/cover',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '800px' }}>
           <motion.h1 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            style={{ fontSize: '3.5rem', lineHeight: 1.1, marginBottom: '30px', fontWeight: 800 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            style={{ fontSize: 'clamp(2.5rem, 10vw, 3.5rem)', lineHeight: 1.1, marginBottom: '20px', fontWeight: 800 }}
           >
             Driving the Future of <span style={{ color: '#3b82f6' }}>Global Industry</span>
           </motion.h1>
-          <p style={{ fontSize: '1.2rem', color: '#64748b', marginBottom: '40px', maxWidth: '500px' }}>
+          <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: '#64748b', marginBottom: '30px', marginInline: 'auto' }}>
             Transforming corporate landscapes through integrated solutions, sustainable practices, and elite market intelligence.
           </p>
-          <div style={{ display: 'flex', gap: '15px' }}>
-            <button style={{ background: '#1e293b', color: '#fff', border: 'none', padding: '15px 30px', borderRadius: '5px', fontWeight: 700, cursor: 'pointer' }}>View Case Studies</button>
-            <button style={{ border: '2px solid #3b82f6', color: '#3b82f6', background: 'transparent', padding: '15px 30px', borderRadius: '5px', fontWeight: 700, cursor: 'pointer' }}>Our Philosophy</button>
+          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button style={{ background: '#1e293b', color: '#fff', border: 'none', padding: '12px 25px', borderRadius: '5px', fontWeight: 700, cursor: 'pointer', flex: '1 1 auto' }}>View Case Studies</button>
+            <button style={{ border: '2px solid #3b82f6', color: '#3b82f6', background: 'transparent', padding: '12px 25px', borderRadius: '5px', fontWeight: 700, cursor: 'pointer', flex: '1 1 auto' }}>Our Philosophy</button>
           </div>
         </div>
         <motion.div 
-           initial={{ opacity: 0, scale: 0.8 }}
+           initial={{ opacity: 0, scale: 0.9 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ delay: 0.3 }}
-           style={{ flex: 1, height: '400px', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+           style={{ width: '100%', maxWidth: '800px', height: 'clamp(250px, 40vw, 400px)', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
         >
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2340" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="office"/>
         </motion.div>
       </section>
 
       {/* Interactive Services Section */}
-      <section style={{ padding: '80px 10%' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '50px', fontSize: '2.5rem', fontWeight: 800 }}>Core Expertise</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+      <section style={{ padding: '80px 5%' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '50px', fontSize: 'clamp(2rem, 8vw, 2.5rem)', fontWeight: 800 }}>Core Expertise</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '20px' }}>
           {services.map((s, idx) => (
             <motion.div 
               key={idx}
               onHoverStart={() => setActiveService(idx)}
               onClick={() => setSelectedService(s)}
               style={{ 
-                padding: '40px', background: activeService === idx ? '#3b82f6' : '#fff', 
+                padding: 'clamp(1.5rem, 5vw, 40px)', background: activeService === idx ? '#3b82f6' : '#fff', 
                 color: activeService === idx ? '#fff' : '#1e293b',
                 borderRadius: '15px', border: '1px solid #e2e8f0', cursor: 'pointer',
                 transition: 'background 0.4s, color 0.4s'
@@ -131,18 +139,18 @@ const BusinessSkeleton = ({ onBack }) => {
 
 
       {/* Corporate Statistic Section */}
-      <section style={{ background: '#1e293b', color: '#fff', padding: '60px 10%', display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
+      <section style={{ background: '#1e293b', color: '#fff', padding: '60px 5%', display: 'flex', justifyContent: 'space-around', textAlign: 'center', flexWrap: 'wrap', gap: '30px' }}>
         <div>
-          <div style={{ fontSize: '3rem', fontWeight: 900, color: '#3b82f6' }}>25+</div>
-          <p style={{ opacity: 0.6, fontSize: '0.9rem' }}>YEARS IN INDUSTRY</p>
+          <div style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: 900, color: '#3b82f6' }}>25+</div>
+          <p style={{ opacity: 0.6, fontSize: '0.8rem' }}>YEARS IN INDUSTRY</p>
         </div>
         <div>
-          <div style={{ fontSize: '3rem', fontWeight: 900, color: '#3b82f6' }}>120</div>
-          <p style={{ opacity: 0.6, fontSize: '0.9rem' }}>GLOBAL OFFICES</p>
+          <div style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: 900, color: '#3b82f6' }}>120</div>
+          <p style={{ opacity: 0.6, fontSize: '0.8rem' }}>GLOBAL OFFICES</p>
         </div>
         <div>
-          <div style={{ fontSize: '3rem', fontWeight: 900, color: '#3b82f6' }}>$4.2B</div>
-          <p style={{ opacity: 0.6, fontSize: '0.9rem' }}>ANNUAL REVENUE</p>
+          <div style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: 900, color: '#3b82f6' }}>$4.2B</div>
+          <p style={{ opacity: 0.6, fontSize: '0.8rem' }}>ANNUAL REVENUE</p>
         </div>
       </section>
     </div>

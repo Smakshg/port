@@ -43,18 +43,22 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '4rem' }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 8vw, 4rem)' }}
         >
-          <h2 style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 10vw, 3.5rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
             Enterprise <span className="text-gradient">Solutions</span>
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: 'clamp(1rem, 4vw, 1.1rem)', padding: '0 1rem' }}>
             Discover how we've helped our partners overcome technological hurdles through innovative engineering and strategic thinking.
           </p>
         </motion.div>
 
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', 
+          gap: '2rem' 
+        }}>
           {projects.map((proj, idx) => (
             <motion.div
               key={idx}

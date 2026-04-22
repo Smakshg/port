@@ -51,72 +51,81 @@ const SaaSSkeleton = ({ onBack }) => {
       </section>
 
       {/* Interactive Pricing */}
-      <section style={{ padding: '80px 20%', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '40px' }}>Simple, <span style={{ color: '#06b6d4' }}>Transparent</span> Pricing</h2>
-        
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '50px', flexWrap: 'wrap' }}>
-          <span style={{ opacity: isYearly ? 0.5 : 1 }}>Monthly</span>
-          <div 
-            onClick={() => setIsYearly(!isYearly)}
-            style={{ width: '60px', height: '30px', background: '#8b5cf6', borderRadius: '15px', position: 'relative', cursor: 'pointer', padding: '5px' }}>
-            <motion.div 
-              animate={{ x: isYearly ? 30 : 0 }}
-              style={{ width: '20px', height: '20px', background: '#fff', borderRadius: '50%' }}
-            />
+      <section style={{ padding: '80px 0', textAlign: 'center' }}>
+        <div className="container">
+          <h2 style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', marginBottom: '40px' }}>Simple, <span style={{ color: '#06b6d4' }}>Transparent</span> Pricing</h2>
+          
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '50px', flexWrap: 'wrap' }}>
+            <span style={{ opacity: isYearly ? 0.5 : 1 }}>Monthly</span>
+            <div 
+              onClick={() => setIsYearly(!isYearly)}
+              style={{ width: '60px', height: '30px', background: '#8b5cf6', borderRadius: '15px', position: 'relative', cursor: 'pointer', padding: '5px' }}>
+              <motion.div 
+                animate={{ x: isYearly ? 30 : 0 }}
+                style={{ width: '20px', height: '20px', background: '#fff', borderRadius: '50%' }}
+              />
+            </div>
+            <span style={{ opacity: isYearly ? 1 : 0.5 }}>Yearly <span style={{ fontSize: '0.7rem', background: '#06b6d4', padding: '2px 8px', borderRadius: '10px' }}>20% OFF</span></span>
           </div>
-          <span style={{ opacity: isYearly ? 1 : 0.5 }}>Yearly <span style={{ fontSize: '0.7rem', background: '#06b6d4', padding: '2px 8px', borderRadius: '10px' }}>20% OFF</span></span>
-        </div>
 
-        <div style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          {['Basic', 'Pro', 'Enterprise'].map((plan, idx) => (
-            <motion.div 
-              key={plan}
-              whileHover={{ y: -10 }}
-              style={{ minWidth: '300px', flex: '1 1 300px', maxWidth: '400px', padding: '40px', background: '#0f172a', border: '1px solid #1e293b', borderRadius: '20px', textAlign: 'left' }}
-            >
-              <h3 style={{ fontSize: '1.2rem', color: '#94a3b8' }}>{plan}</h3>
-              <div style={{ margin: '20px 0', display: 'flex', alignItems: 'flex-end', gap: '5px' }}>
-                <span style={{ fontSize: '3rem', fontWeight: 800 }}>${isYearly ? (idx + 1) * 79 : (idx + 1) * 99}</span>
-                <div style={{ display: 'flex', flexDirection: 'column', fontSize: '0.9rem', color: '#475569', marginBottom: '10px' }}>
-                  <span>/mo</span>
-                  {isYearly && <span style={{ fontSize: '0.6rem', color: '#06b6d4' }}>Billed annually</span>}
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', 
+            gap: '30px',
+            justifyContent: 'center'
+          }}>
+            {['Basic', 'Pro', 'Enterprise'].map((plan, idx) => (
+              <motion.div 
+                key={plan}
+                whileHover={{ y: -10 }}
+                style={{ padding: 'clamp(1.5rem, 5vw, 2.5rem)', background: '#0f172a', border: '1px solid #1e293b', borderRadius: '20px', textAlign: 'left' }}
+              >
+                <h3 style={{ fontSize: '1.2rem', color: '#94a3b8' }}>{plan}</h3>
+                <div style={{ margin: '20px 0', display: 'flex', alignItems: 'flex-end', gap: '5px' }}>
+                  <span style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', fontWeight: 800 }}>${isYearly ? (idx + 1) * 79 : (idx + 1) * 99}</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', fontSize: '0.9rem', color: '#475569', marginBottom: '10px' }}>
+                    <span>/mo</span>
+                    {isYearly && <span style={{ fontSize: '0.6rem', color: '#06b6d4' }}>Billed annually</span>}
+                  </div>
                 </div>
-              </div>
 
-              <ul style={{ listStyle: 'none', padding: 0, color: '#94a3b8', marginBottom: '30px' }}>
-                <li>✓ Unlimited Projects</li>
-                <li>✓ Priority Support</li>
-                <li>✓ Advanced Security</li>
-              </ul>
-              <button style={{ width: '100%', padding: '12px', borderRadius: '10px', background: idx === 1 ? '#8b5cf6' : 'transparent', color: '#fff', border: idx === 1 ? 'none' : '1px solid #334155', cursor: 'pointer', fontWeight: 600 }}>
-                Choose {plan}
-              </button>
-            </motion.div>
-          ))}
+                <ul style={{ listStyle: 'none', padding: 0, color: '#94a3b8', marginBottom: '30px' }}>
+                  <li>✓ Unlimited Projects</li>
+                  <li>✓ Priority Support</li>
+                  <li>✓ Advanced Security</li>
+                </ul>
+                <button style={{ width: '100%', padding: '12px', borderRadius: '10px', background: idx === 1 ? '#8b5cf6' : 'transparent', color: '#fff', border: idx === 1 ? 'none' : '1px solid #334155', cursor: 'pointer', fontWeight: 600 }}>
+                  Choose {plan}
+                </button>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Feature Grid */}
-      <section style={{ padding: '100px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
-          {[
-            { icon: <FaRocket />, title: 'Lightning Fast', desc: 'Optimized build processes for instant deployment.' },
-            { icon: <FaShieldAlt />, title: 'Secure by Default', desc: 'Enterprise-grade encryption for all your data.' },
-            { icon: <FaChartLine />, title: 'Advanced Analytics', desc: 'Real-time insights into your application performance.' },
-          ].map((f, i) => (
-            <motion.div 
-              key={i} 
-              whileHover={{ scale: 1.05 }}
-              style={{ 
-                padding: '40px', borderRadius: '20px', background: '#0f172a',
-                border: '1px solid #1e293b'
-              }}
-            >
-              <div style={{ fontSize: '2rem', color: '#8b5cf6', marginBottom: '20px' }}>{f.icon}</div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>{f.title}</h3>
-              <p style={{ color: '#94a3b8' }}>{f.desc}</p>
-            </motion.div>
-          ))}
+      <section style={{ padding: '100px 0' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '30px' }}>
+            {[
+              { icon: <FaRocket />, title: 'Lightning Fast', desc: 'Optimized build processes for instant deployment.' },
+              { icon: <FaShieldAlt />, title: 'Secure by Default', desc: 'Enterprise-grade encryption for all your data.' },
+              { icon: <FaChartLine />, title: 'Advanced Analytics', desc: 'Real-time insights into your application performance.' },
+            ].map((f, i) => (
+              <motion.div 
+                key={i} 
+                whileHover={{ scale: 1.05 }}
+                style={{ 
+                  padding: 'clamp(1.5rem, 5vw, 2.5rem)', borderRadius: '20px', background: '#0f172a',
+                  border: '1px solid #1e293b'
+                }}
+              >
+                <div style={{ fontSize: '2.5rem', color: '#8b5cf6', marginBottom: '20px' }}>{f.icon}</div>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>{f.title}</h3>
+                <p style={{ color: '#94a3b8' }}>{f.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
