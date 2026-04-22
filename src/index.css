@@ -9,11 +9,8 @@
   --accent-secondary: #06b6d4;
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
-<<<<<<< HEAD
   --section-padding: 120px;
   --mobile-padding: 60px;
-=======
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
 }
 
 * {
@@ -108,7 +105,6 @@ a {
   z-index: -1;
   pointer-events: none;
 }
-<<<<<<< HEAD
 
 /* Responsive Utilities */
 @media (max-width: 1024px) {
@@ -142,5 +138,3 @@ a {
     grid-template-columns: 1fr;
   }
 }
-=======
->>>>>>> 77a4990a1fc837a665e0653c14dedd0e33febe06
