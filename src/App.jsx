@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
-import Projects from './components/Projects';
+import Solutions from './components/Projects';
 import ShowcaseGallery from './components/ShowcaseGallery';
 import SaaSSkeleton from './components/skeletons/SaaSSkeleton';
 import StudioSkeleton from './components/skeletons/StudioSkeleton';
@@ -50,7 +50,7 @@ function App() {
       case 'about':
         return <About />;
       case 'projects':
-        return <Projects />;
+        return <Solutions />;
       case 'saas':
         return <SaaSSkeleton onBack={() => window.location.hash = 'showcase'} />;
       case 'studio':
