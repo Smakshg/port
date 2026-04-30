@@ -96,7 +96,7 @@ function App() {
 
       {isMainPage && (
         <footer style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-secondary)', borderTop: '1px solid var(--glass-border)', marginTop: '50px' }}>
-          <p>&copy; {new Date().getFullYear()} NEXSG. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} DevNex. All rights reserved.</p>
         </footer>
       )}
     </>

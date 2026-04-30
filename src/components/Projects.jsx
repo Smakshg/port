@@ -166,7 +166,7 @@ const Solutions = () => {
           </div>
         </div>
 
-        {/* 5. Why Choose NEXSG / CTA */}
+        {/* 5. Why Choose DevNex / CTA */}
         <motion.div
           className="glass"
           style={{ padding: '4rem', textAlign: 'center', borderRadius: '30px', background: 'linear-gradient(45deg, rgba(6,182,212,0.1), rgba(139,92,246,0.1))' }}

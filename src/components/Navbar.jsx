@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import logoImage from '../../logo.png';
+
 const Navbar = ({ setView, currentView }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -41,10 +43,10 @@ const Navbar = ({ setView, currentView }) => {
         boxShadow: scrolled ? '0 10px 30px -10px rgba(139, 92, 246, 0.3)' : 'none'
       }}>
         <div
-          style={{ fontWeight: 800, fontSize: '1.4rem', fontFamily: 'Outfit, sans-serif', cursor: 'pointer', letterSpacing: '2px' }}
+          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
           onClick={() => { window.location.hash = 'home'; setIsOpen(false); }}
         >
-          <span className="text-gradient">NEXSG</span>
+          <img src={logoImage} alt="DevNex Logo" style={{ height: '40px', objectFit: 'contain' }} />
         </div>
 
         {/* Desktop Menu */}

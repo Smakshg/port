@@ -8,8 +8,8 @@ const Contact = () => {
       id: 1,
       icon: <FaEnvelope />,
       title: 'Email',
-      value: 'smakshgupta55@gmail.com',
-      link: 'mailto:smakshgupta55@gmail.com',
+      value: 'contact@devnex.com',
+      link: 'mailto:contact@devnex.com',
       color: '#ea4335'
     },
     {
