@@ -16,7 +16,7 @@ const About = () => {
             <span className="text-gradient">Our Mission</span>
           </h2>
           <p style={{ color: 'var(--text-secondary)', maxWidth: '800px', margin: '0 auto clamp(2rem, 8vw, 4rem)', textAlign: 'center', fontSize: 'clamp(1rem, 4vw, 1.1rem)', lineHeight: 1.8 }}>
-            At <strong style={{ color: 'var(--text-primary)' }}>NEXSG</strong>, we bridge the gap between complex challenges and elegant technology. We are a collective of engineers, designers, and visionaries dedicated to building high-performance systems that scale.
+            At <strong style={{ color: 'var(--text-primary)' }}>Devnex</strong>, we bridge the gap between complex challenges and elegant technology. We are a collective of engineers, designers, and visionaries dedicated to building high-performance systems that scale.
           </p>
         </motion.div>
 
