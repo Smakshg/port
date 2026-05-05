@@ -43,10 +43,19 @@ const Navbar = ({ setView, currentView }) => {
         boxShadow: scrolled ? '0 10px 30px -10px rgba(139, 92, 246, 0.3)' : 'none'
       }}>
         <div
-          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '12px' }}
           onClick={() => { window.location.hash = 'home'; setIsOpen(false); }}
         >
-          <img src={logoImage} alt="DevNex Logo" style={{ height: '40px', objectFit: 'contain' }} />
+          <img src={logoImage} alt="DevNex Logo" style={{ height: '60px', objectFit: 'contain' }} />
+          <h1 style={{ 
+            fontSize: '1.6rem', 
+            fontWeight: 800, 
+            margin: 0, 
+            letterSpacing: '0.5px',
+            background: 'linear-gradient(to right, #ffffff, var(--accent-primary))',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}>DevNex</h1>
         </div>
 
         {/* Desktop Menu */}
